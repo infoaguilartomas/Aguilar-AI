@@ -4,458 +4,470 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGUILAR-AI | Contenido Visual Premium para Clínicas Estéticas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        * {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .font-display {
-            font-family: 'Playfair Display', serif;
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #c9a96e 0%, #e2c792 50%, #b8934f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #0d0d0d 60%, #0a0a0a 100%);
-        }
-        .card-glow {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-glow:hover {
-            box-shadow: 0 0 40px rgba(201, 169, 110, 0.15), 0 20px 60px rgba(0, 0, 0, 0.4);
-            transform: translateY(-8px);
-        }
-        .popular-badge {
-            background: linear-gradient(135deg, #c9a96e, #b8934f);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #c9a96e 0%, #b8934f 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #d4b87a 0%, #c9a96e 100%);
-            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            border: 1.5px solid rgba(201, 169, 110, 0.5);
-            transition: all 0.3s ease;
-        }
-        .btn-outline:hover {
-            border-color: #c9a96e;
-            background: rgba(201, 169, 110, 0.08);
-            transform: translateY(-2px);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.2), transparent);
-        }
-        .faq-item {
-            transition: all 0.3s ease;
-        }
-        .faq-item:hover {
-            background: rgba(201, 169, 110, 0.04);
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #c9a96e;
-            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGUILAR-AI | Home</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="gradient-bg text-white min-h-screen">
+<body>
+  <nav class="navbar">
+    <div class="logo">AGUILAR-AI<span class="highlight">.</span></div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="pricing.html">Precios</a>
+      <a href="flujo-pago.html">Pago</a>
+    </div>
+    <a href="pricing.html" class="btn btn-primary">Ver planes</a>
+    <button class="mobile-menu-btn">☰</button>
+  </nav>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-2 group">
-                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center font-display font-bold text-sm shadow-lg shadow-amber-500/20">
-                        A
-                    </div>
-                    <span class="font-display text-xl md:text-2xl font-semibold tracking-tight">
-                        AGUILAR-<span class="gradient-text">AI</span>
-                    </span>
-                </a>
-
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#planes" class="text-sm text-gray-400 hover:text-amber-300 transition-colors duration-200">Planes</a>
-                    <a href="#faq" class="text-sm text-gray-400 hover:text-amber-300 transition-colors duration-200">Preguntas frecuentes</a>
-                    <a href="#contacto" class="text-sm text-gray-400 hover:text-amber-300 transition-colors duration-200">Contacto</a>
-                    <a href="#contacto" class="btn-primary text-sm font-medium px-5 py-2.5 rounded-full text-black">
-                        Solicitar información
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden text-gray-400 hover:text-white transition-colors">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="label">CONTENIDO VISUAL PARA CLÍNICAS ESTÉTICAS</span>
+        <h1>Potencia tu clínica con <span class="highlight">creatividad visual premium</span> y resultados reales.</h1>
+        <p>Automatiza y escala tu contenido visual sin perder calidad. Sistema pensado para clínicas que quieren destacar en redes, campañas y captación digital.</p>
+        <div class="hero-actions">
+          <a href="pricing.html" class="btn btn-primary">Ir a pricing</a>
+          <a href="flujo-pago.html" class="btn btn-secondary">Probar flujo de pago</a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden glass-card border-t border-white/5 px-4 py-4 space-y-3">
-            <a href="#planes" class="block text-sm text-gray-400 hover:text-amber-300 py-2">Planes</a>
-            <a href="#faq" class="block text-sm text-gray-400 hover:text-amber-300 py-2">Preguntas frecuentes</a>
-            <a href="#contacto" class="block text-sm text-gray-400 hover:text-amber-300 py-2">Contacto</a>
-            <a href="#contacto" class="btn-primary text-sm font-medium px-5 py-2.5 rounded-full text-black inline-block">
-                Solicitar información
-            </a>
+  <section class="section section-dark">
+    <div class="container text-center">
+      <span class="label">¿CÓMO FUNCIONA?</span>
+      <h2>Un sistema simple y ordenado</h2>
+      <p>Elige plan, define tus necesidades y activa tu producción visual en minutos.</p>
+      <div class="cards-3">
+        <article class="info-card animate-in">
+          <h3>1. Elige plan</h3>
+          <p>Selecciona el nivel de servicio según volumen, personalización y objetivos de tu clínica.</p>
+        </article>
+        <article class="info-card animate-in">
+          <h3>2. Configura campaña</h3>
+          <p>Indica tratamientos, estilo visual y enfoque para construir una comunicación coherente.</p>
+        </article>
+        <article class="info-card animate-in">
+          <h3>3. Publica y escala</h3>
+          <p>Recibe contenido listo para usar y mantén una presencia premium en todos tus canales.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="panel animate-in">
+        <span class="label">PRÓXIMO PASO</span>
+        <h2>Revisa planes y activa tu flujo</h2>
+        <p>Desde la página de precios podrás entrar a un flujo de pago editable para adaptarlo a tu negocio.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="pricing.html" class="btn btn-primary">Ir a precios</a>
+          <a href="mailto:juan@aguilarai.com" class="btn btn-secondary">Contactar</a>
         </div>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="pt-28 md:pt-36 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-5xl mx-auto text-center">
-            <!-- Badge -->
-            <div class="inline-flex items-center gap-2 glass-card rounded-full px-4 py-2 mb-8">
-                <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                <span class="text-sm text-gray-400">+42 clínicas activas este mes</span>
-            </div>
-
-            <!-- Main Heading -->
-            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-                Contenido visual
-                <span class="gradient-text"> premium </span>
-                para tu clínica estética
-            </h1>
-
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Planes visuales diseñados para elevar la imagen y captación de tu clínica. 
-                Una estructura clara para que elijas el nivel de contenido visual que necesitas, 
-                manteniendo calidad premium y coherencia de marca.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#planes" class="btn-primary text-base font-semibold px-8 py-3.5 rounded-full text-black w-full sm:w-auto text-center">
-                    Ver planes
-                    <i data-lucide="arrow-down" class="inline w-4 h-4 ml-2"></i>
-                </a>
-                <a href="#contacto" class="btn-outline text-base font-medium px-8 py-3.5 rounded-full text-amber-300 w-full sm:w-auto text-center">
-                    Hablar con un asesor
-                </a>
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div>
+          <div class="footer-logo">AGUILAR-AI<span class="highlight">.</span></div>
+          <p>Contenido visual premium para clínicas estéticas.</p>
         </div>
-
-        <!-- Decorative image grid -->
-        <div class="max-w-6xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="relative overflow-hidden rounded-2xl h-48 md:h-64">
-                <img src="http://static.photos/medical/640x360/42" alt="Clínica estética moderna" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <span class="absolute bottom-3 left-3 text-xs text-white/80 font-medium">Fotografía clínica</span>
-            </div>
-            <div class="relative overflow-hidden rounded-2xl h-48 md:h-64">
-                <img src="http://static.photos/beauty/640x360/87" alt="Contenido visual para redes" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <span class="absolute bottom-3 left-3 text-xs text-white/80 font-medium">Contenido para redes</span>
-            </div>
-            <div class="relative overflow-hidden rounded-2xl h-48 md:h-64">
-                <img src="http://static.photos/wellness/640x360/23" alt="Antes y después profesional" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <span class="absolute bottom-3 left-3 text-xs text-white/80 font-medium">Antes y después</span>
-            </div>
+        <div>
+          <p>juan@aguilarai.com</p>
+          <p>+34 696 343 875</p>
         </div>
-    </section>
+      </div>
+      <div class="footer-bottom">© 2026 AGUILAR-AI. Todos los derechos reservados.</div>
+    </div>
+  </footer>
 
-    <!-- Divider -->
-    <div class="section-divider max-w-4xl mx-auto"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | AGUILAR-AI</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --black:#0A0A0A; --dark-gray:#111111; --medium-gray:#1E1E1E; --light-gray:#888888; --white:#fff; --yellow:#F7CE00; --section-padding:120px 0; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'DM Sans',sans-serif; background:var(--black); color:var(--white); line-height:1.7; overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; }
+    .container { width:min(90%,1200px); margin:0 auto; }
+    .label { font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--yellow); display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; }
+    .label::before { content:"●"; animation:pulse 1.5s infinite; }
+    h1 { font-size:clamp(48px,6vw,96px); font-weight:900; line-height:1.05; margin-bottom:24px; }
+    h2 { font-size:clamp(36px,4vw,56px); font-weight:800; margin-bottom:20px; }
+    p { font-size:18px; color:var(--light-gray); margin-bottom:20px; }
+    .highlight { color:var(--yellow); }
+    .text-center { text-align:center; }
+    .btn { display:inline-block; padding:16px 32px; border-radius:8px; font-weight:800; border:none; cursor:pointer; transition:.3s ease; font-size:16px; }
+    .btn-primary { background:var(--yellow); color:var(--black); }
+    .btn-secondary { border:1px solid var(--white); background:transparent; color:var(--white); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(247,206,0,.2); }
+    .btn-secondary:hover { background:rgba(255,255,255,.08); }
+    .navbar { position:fixed; top:0; left:0; width:100%; padding:24px 5%; display:flex; justify-content:space-between; align-items:center; z-index:1000; transition:.3s ease; }
+    .navbar.scrolled { background:rgba(10,10,10,.9); backdrop-filter:blur(12px); padding:16px 5%; }
+    .logo { font-size:24px; font-weight:800; }
+    .nav-links { display:flex; gap:32px; }
+    .nav-links a { position:relative; font-weight:700; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--yellow); transition:width .3s ease; }
+    .nav-links a:hover::after { width:100%; }
+    .mobile-menu-btn { display:none; background:none; border:none; color:var(--white); font-size:24px; cursor:pointer; }
+    .hero { min-height:82vh; padding:var(--section-padding); display:flex; align-items:center; position:relative; overflow:hidden; }
+    .hero-content { max-width:760px; }
+    .hero-notification { position:absolute; right:5%; top:54%; transform:translateY(-50%); width:340px; background:#1A1A1A; border-left:4px solid var(--yellow); border-radius:12px; padding:20px; opacity:0; animation:slideIn 1s forwards; }
+    .notification-time { font-size:12px; color:var(--light-gray); margin-bottom:8px; }
+    .pricing { padding:var(--section-padding); background:#0F0F0F; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+    .pricing-card { background:var(--medium-gray); border-radius:18px; padding:34px; border:1px solid #252525; display:flex; flex-direction:column; transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+    .pricing-card:hover { transform:translateY(-8px); border-color:rgba(247,206,0,.35); box-shadow:0 20px 40px rgba(0,0,0,.35); }
+    .featured { background:#161616; border-color:rgba(247,206,0,.75); position:relative; }
+    .plan-badge { position:absolute; top:-14px; right:24px; background:var(--yellow); color:var(--black); font-size:12px; font-weight:800; padding:6px 12px; border-radius:999px; letter-spacing:.05em; text-transform:uppercase; }
+    .plan-name { font-size:24px; font-weight:800; margin-bottom:8px; }
+    .plan-subtitle { font-size:16px; color:var(--light-gray); margin-bottom:20px; min-height:78px; }
+    .plan-price { font-size:50px; font-weight:900; line-height:1; margin-bottom:8px; }
+    .plan-price small { font-size:16px; color:var(--light-gray); font-weight:700; }
+    .plan-discount { font-size:13px; color:#9dd9b8; margin-bottom:24px; }
+    .plan-features { list-style:none; margin:20px 0 32px; display:grid; gap:12px; color:#d8d8d8; font-size:16px; }
+    .plan-features li::before { content:'✓'; color:var(--yellow); font-weight:800; margin-right:10px; }
+    .plan-cta { margin-top:auto; text-align:center; }
+    .faq { padding:var(--section-padding); background:var(--dark-gray); }
+    .faq-grid { max-width:920px; margin:34px auto 0; display:grid; gap:16px; }
+    .faq-item { border:1px solid #252525; border-radius:14px; background:#151515; overflow:hidden; transition:border-color .3s ease; }
+    .faq-item.active { border-color:rgba(247,206,0,.4); }
+    .faq-question { width:100%; border:none; background:transparent; color:var(--white); font-size:18px; font-weight:700; padding:20px 22px; text-align:left; display:flex; justify-content:space-between; align-items:center; cursor:pointer; }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height .35s ease; padding:0 22px; }
+    .faq-item.active .faq-answer { max-height:220px; padding-bottom:20px; }
+    .cta { padding:var(--section-padding); text-align:center; }
+    .cta-panel { background:#111; border:1px solid #252525; border-radius:18px; padding:56px 28px; }
+    .cta-actions { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:20px; }
+    .footer { padding:60px 0 30px; border-top:1px solid #1f1f1f; }
+    .footer-container { display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+    .footer-logo { font-size:28px; font-weight:800; margin-bottom:12px; }
+    .footer-bottom { margin-top:26px; padding-top:18px; border-top:1px solid #1b1b1b; color:#7f7f7f; font-size:14px; }
+    .animate-in { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+    .animate-in.visible { opacity:1; transform:translateY(0); }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    @keyframes slideIn { 0%{opacity:0;transform:translate(30px,-50%)} 100%{opacity:1;transform:translate(0,-50%)} }
+    @media (max-width:1024px) { .hero-notification { display:none; } .pricing-grid { grid-template-columns:1fr; max-width:760px; margin:40px auto 0; } .plan-subtitle { min-height:auto; } }
+    @media (max-width:768px) {
+      .navbar .btn { display:none; }
+      .mobile-menu-btn { display:block; }
+      .nav-links { display:none; position:absolute; top:70px; right:5%; background:#161616; border:1px solid #2a2a2a; border-radius:12px; flex-direction:column; gap:18px; padding:20px; min-width:210px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">AGUILAR-AI<span class="highlight">.</span></div>
+    <div class="nav-links">
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a href="#contacto" class="btn btn-primary">Solicitar información</a>
+    <button class="mobile-menu-btn">☰</button>
+  </nav>
 
-    <!-- Pricing Section -->
-    <section id="planes" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                    Selecciona el plan ideal
-                    <span class="gradient-text"> para tu clínica</span>
-                </h2>
-                <p class="text-gray-400 text-lg max-w-xl mx-auto">
-                    Diseñado para clínicas estéticas que necesitan contenido visual profesional, rápido y consistente.
-                </p>
-            </div>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="label">PRICING PREMIUM PARA CLÍNICAS ESTÉTICAS</span>
+        <h1>Planes visuales para elevar <span class="highlight">la imagen y captación</span> de tu clínica.</h1>
+        <p>Una estructura clara para que cada clínica elija el nivel de contenido visual que necesita, manteniendo calidad premium y coherencia de marca.</p>
+        <a href="#pricing" class="btn btn-primary">Ver planes</a>
+      </div>
+      <div class="hero-notification">
+        <div class="notification-time">actualización</div>
+        <div>Clínicas activas este mes: +42 con contenido visual en producción</div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Pricing Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                
-                <!-- Plan 1: Visual Access -->
-                <div class="glass-card rounded-3xl p-8 card-glow flex flex-col relative">
-                    <div class="mb-6">
-                        <h3 class="font-display text-xl font-semibold mb-1">Visual Access</h3>
-                        <p class="text-gray-500 text-sm">Acceso base para empezar con contenido profesional</p>
-                    </div>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">€89</span>
-                        <span class="text-gray-500">/mes</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Generaciones limitadas
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Acceso al sistema visual
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Variaciones básicas
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Uso para redes sociales
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Descarga de imágenes
-                        </li>
-                    </ul>
-                    <a href="#contacto" class="btn-outline text-sm font-semibold px-6 py-3 rounded-full text-center text-amber-300">
-                        Empezar
-                    </a>
-                </div>
+  <section id="pricing" class="pricing">
+    <div class="container text-center">
+      <span class="label">PLANES</span>
+      <h2>Selecciona el plan ideal para tu clínica</h2>
+      <p>Diseñado para clínicas estéticas que necesitan contenido visual profesional, rápido y consistente.</p>
 
-                <!-- Plan 2: Smart Studio (Popular) -->
-                <div class="relative rounded-3xl p-8 card-glow flex flex-col bg-white/[0.05] border border-amber-500/20 -mt-4 md:-mt-6 mb-0 md:mb-0 z-10">
-                    <div class="popular-badge absolute -top-4 left-1/2 -translate-x-1/2 text-black text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-lg">
-                        ⭐ Plan recomendado
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="font-display text-xl font-semibold mb-1">Smart Studio</h3>
-                        <p class="text-gray-500 text-sm">Equilibrio ideal entre volumen, calidad y velocidad</p>
-                    </div>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">€189</span>
-                        <span class="text-gray-500">/mes</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Más créditos y generaciones
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Variaciones avanzadas
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Diferentes estilos visuales
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Antes y después
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Portadas publicitarias
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Prioridad de generación
-                        </li>
-                    </ul>
-                    <a href="#contacto" class="btn-primary text-sm font-semibold px-6 py-3 rounded-full text-center text-black">
-                        Plan recomendado
-                    </a>
-                </div>
+      <div class="pricing-grid">
+        <article class="pricing-card animate-in">
+          <div class="plan-name">VISUAL ACCESS</div>
+          <p class="plan-subtitle">Accede a contenido visual listo para usar para redes sociales, campañas y contenido clínico.</p>
+          <div class="plan-price">€89 <small>/ mes</small></div>
+          <div class="plan-discount">Acceso base para empezar con contenido profesional</div>
+          <ul class="plan-features">
+            <li>Generaciones limitadas</li>
+            <li>Acceso al sistema visual</li>
+            <li>Variaciones básicas</li>
+            <li>Uso para redes sociales</li>
+            <li>Descarga de imágenes</li>
+          </ul>
+          <a href="#contacto" class="btn btn-secondary plan-cta">Empezar</a>
+        </article>
 
-                <!-- Plan 3: Premium Custom -->
-                <div class="glass-card rounded-3xl p-8 card-glow flex flex-col">
-                    <div class="mb-6">
-                        <h3 class="font-display text-xl font-semibold mb-1">Premium Custom</h3>
-                        <p class="text-gray-500 text-sm">Servicio premium con enfoque totalmente personalizado</p>
-                    </div>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">A medida</span>
-                        <span class="text-gray-500">/proyecto</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Trabajo 1 a 1
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Campañas personalizadas
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Creatividades premium
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Adaptación total
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-400">
-                            <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
-                            Prioridad máxima
-                        </li>
-                    </ul>
-                    <a href="#contacto" class="btn-outline text-sm font-semibold px-6 py-3 rounded-full text-center text-amber-300">
-                        Contactar
-                    </a>
-                </div>
-            </div>
+        <article class="pricing-card featured animate-in">
+          <span class="plan-badge">Plan destacado</span>
+          <div class="plan-name">SMART STUDIO</div>
+          <p class="plan-subtitle">Genera contenido visual adaptado a tratamientos y estilos específicos mediante nuestro sistema inteligente.</p>
+          <div class="plan-price">€189 <small>/ mes</small></div>
+          <div class="plan-discount">Equilibrio ideal entre volumen, calidad y velocidad</div>
+          <ul class="plan-features">
+            <li>Más créditos y generaciones</li>
+            <li>Variaciones avanzadas</li>
+            <li>Diferentes estilos visuales</li>
+            <li>Antes y después</li>
+            <li>Portadas publicitarias</li>
+            <li>Prioridad de generación</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary plan-cta">Plan recomendado</a>
+        </article>
+
+        <article class="pricing-card animate-in">
+          <div class="plan-name">PREMIUM CUSTOM</div>
+          <p class="plan-subtitle">Dirección creativa personalizada y campañas visuales premium para clínicas.</p>
+          <div class="plan-price">A medida <small>/ proyecto</small></div>
+          <div class="plan-discount">Servicio premium con enfoque totalmente personalizado</div>
+          <ul class="plan-features">
+            <li>Trabajo 1 a 1</li>
+            <li>Campañas personalizadas</li>
+            <li>Creatividades premium</li>
+            <li>Adaptación total</li>
+            <li>Prioridad máxima</li>
+          </ul>
+          <a href="#contacto" class="btn btn-secondary plan-cta">Contactar</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="container text-center">
+      <span class="label">FAQ</span>
+      <h2>Preguntas frecuentes</h2>
+      <p>Resolvemos las dudas más comunes sobre créditos, uso comercial y funcionamiento.</p>
+      <div class="faq-grid">
+        <article class="faq-item animate-in">
+          <button class="faq-question">¿Cómo funcionan los créditos y generaciones? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Cada plan incluye un volumen mensual de créditos para generar contenido. En planes superiores dispones de más capacidad y prioridad de procesamiento.</p>
+          </div>
+        </article>
+        <article class="faq-item animate-in">
+          <button class="faq-question">¿Puedo usar todo el contenido con fines comerciales? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Sí. El contenido está pensado para uso comercial en redes, campañas y comunicaciones de tu clínica, respetando siempre las políticas de uso acordadas.</p>
+          </div>
+        </article>
+        <article class="faq-item animate-in">
+          <button class="faq-question">¿Qué diferencia hay entre Smart Studio y Premium Custom? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Smart Studio te da generación avanzada guiada por el sistema; Premium Custom añade dirección creativa directa conmigo y desarrollo visual totalmente a medida.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="cta">
+    <div class="container">
+      <div class="cta-panel animate-in">
+        <span class="label">CONTACTO</span>
+        <h2>¿Quieres que te ayude a escalar la imagen visual de tu clínica?</h2>
+        <p>Escríbeme y definimos el plan más adecuado según tus objetivos, tipo de tratamientos y volumen de contenido.</p>
+        <div class="cta-actions">
+          <a href="mailto:juan@aguilarai.com" class="btn btn-primary">Contactar ahora</a>
+          <a href="mailto:juan@aguilarai.com?subject=Consulta%20Pricing" class="btn btn-secondary">Solicitar propuesta</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Divider -->
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                    Preguntas
-                    <span class="gradient-text"> frecuentes</span>
-                </h2>
-                <p class="text-gray-400 text-lg">Todo lo que necesitas saber sobre nuestros servicios visuales</p>
-            </div>
-            <div class="space-y-4">
-                <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-semibold text-white pr-4">¿Qué tipo de contenido puedo generar con AGUILAR-AI?</h3>
-                        <i data-lucide="plus" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
-                    </div>
-                    <p class="text-gray-400 text-sm mt-2 hidden">Imágenes profesionales para redes sociales, antes y después, banners publicitarios, fotografías de tratamientos, contenido para campañas de marketing y mucho más, todo adaptado a la identidad de tu clínica.</p>
-                </div>
-                <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-semibold text-white pr-4">¿Cómo funciona la suscripción mensual?</h3>
-                        <i data-lucide="plus" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
-                    </div>
-                    <p class="text-gray-400 text-sm mt-2 hidden">Eliges el plan que mejor se adapte a tu clínica y recibes créditos mensuales para generar contenido. Puedes cancelar en cualquier momento y no hay permanencia.</p>
-                </div>
-                <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-semibold text-white pr-4">¿Las imágenes generadas son exclusivas para mi clínica?</h3>
-                        <i data-lucide="plus" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
-                    </div>
-                    <p class="text-gray-400 text-sm mt-2 hidden">Sí, cada imagen se genera bajo demanda y está asociada a tu cuenta. No se reutilizan entre clientes, garantizando la originalidad del contenido.</p>
-                </div>
-                <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-semibold text-white pr-4">¿Puedo solicitar ajustes o revisiones?</h3>
-                        <i data-lucide="plus" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
-                    </div>
-                    <p class="text-gray-400 text-sm mt-2 hidden">Por supuesto. Dependiendo del plan, tienes derecho a variaciones y revisiones para que el resultado se ajuste perfectamente a lo que necesitas.</p>
-                </div>
-                <div class="faq-item glass-card rounded-2xl p-6 cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-semibold text-white pr-4">¿Qué diferencia hay entre Smart Studio y Premium Custom?</h3>
-                        <i data-lucide="plus" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
-                    </div>
-                    <p class="text-gray-400 text-sm mt-2 hidden">Smart Studio es un plan autoservicio con mayor volumen y velocidad. Premium Custom es un servicio gestionado directamente por nuestro equipo, con un enfoque completamente personalizado y sin límites creativos.</p>
-                </div>
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div>
+          <div class="footer-logo">AGUILAR-AI<span class="highlight">.</span></div>
+          <p>Contenido visual premium para clínicas estéticas.</p>
         </div>
-    </section>
-
-    <!-- Divider -->
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                Hablemos de
-                <span class="gradient-text"> tu clínica</span>
-            </h2>
-            <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto">
-                Cuéntanos qué necesitas y te ayudaremos a encontrar el plan perfecto para potenciar la imagen de tu clínica estética.
-            </p>
-            <form class="glass-card rounded-2xl p-8 text-left space-y-5">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="text-sm text-gray-400 mb-1 block">Nombre</label>
-                        <input type="text" placeholder="Tu nombre" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600">
-                    </div>
-                    <div>
-                        <label class="text-sm text-gray-400 mb-1 block">Correo electrónico</label>
-                        <input type="email" placeholder="correo@ejemplo.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600">
-                    </div>
-                </div>
-                <div>
-                    <label class="text-sm text-gray-400 mb-1 block">Mensaje</label>
-                    <textarea rows="4" placeholder="Cuéntanos sobre tu clínica y qué contenido necesitas..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600"></textarea>
-                </div>
-                <button type="submit" class="btn-primary text-base font-semibold px-8 py-3.5 rounded-full text-black w-full sm:w-auto">
-                    Enviar mensaje
-                    <i data-lucide="send" class="inline w-4 h-4 ml-2"></i>
-                </button>
-            </form>
+        <div>
+          <p>juan@aguilarai.com</p>
+          <p>+34 696 343 875</p>
         </div>
-    </section>
+      </div>
+      <div class="footer-bottom">© 2026 AGUILAR-AI. All rights reserved.</div>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="border-t border-white/5 py-10 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <a href="#" class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center font-display font-bold text-xs shadow-lg shadow-amber-500/20">
-                    A
-                </div>
-                <span class="font-display text-lg font-semibold">
-                    AGUILAR-<span class="gradient-text">AI</span>
-                </span>
-            </a>
-            <p class="text-gray-500 text-sm text-center">© 2025 AGUILAR-AI. Todos los derechos reservados.</p>
-            <div class="flex items-center gap-4 text-gray-500">
-                <a href="#" class="hover:text-amber-300 transition-colors text-sm">Aviso legal</a>
-                <a href="#" class="hover:text-amber-300 transition-colors text-sm">Privacidad</a>
-            </div>
-        </div>
-    </footer>
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
 
-    <!-- Scripts -->
-    <script>
-        // Inicializar iconos de Lucide
-        lucide.createIcons();
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
 
-        // Menú móvil
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    mobileBtn.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) navLinks.style.display = 'none';
+      });
+    });
 
-        // FAQ acordeón simple
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const paragraph = item.querySelector('p');
-                const icon = item.querySelector('i');
-                const isHidden = paragraph.classList.contains('hidden');
-                
-                // Cerrar todos
-                document.querySelectorAll('.faq-item p').forEach(p => p.classList.add('hidden'));
-                document.querySelectorAll('.faq-item i').forEach(i => i.setAttribute('data-lucide', 'plus'));
-                
-                if (isHidden) {
-                    paragraph.classList.remove('hidden');
-                    icon.setAttribute('data-lucide', 'minus');
-                }
-                lucide.createIcons();
-            });
-        });
-    </script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.closest('.faq-item').classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | AGUILAR-AI</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --black:#0A0A0A; --dark-gray:#111111; --medium-gray:#1E1E1E; --light-gray:#888888; --white:#fff; --yellow:#F7CE00; --section-padding:120px 0; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'DM Sans',sans-serif; background:var(--black); color:var(--white); line-height:1.7; overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; }
+    .container { width:min(90%,1200px); margin:0 auto; }
+    .label { font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--yellow); display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; }
+    .label::before { content:"●"; animation:pulse 1.5s infinite; }
+    h1 { font-size:clamp(48px,6vw,96px); font-weight:900; line-height:1.05; margin-bottom:24px; }
+    h2 { font-size:clamp(36px,4vw,56px); font-weight:800; margin-bottom:20px; }
+    p { font-size:18px; color:var(--light-gray); margin-bottom:20px; }
+    .highlight { color:var(--yellow); }
+    .text-center { text-align:center; }
+    .btn { display:inline-block; padding:16px 32px; border-radius:8px; font-weight:800; border:none; cursor:pointer; transition:.3s ease; font-size:16px; }
+    .btn-primary { background:var(--yellow); color:var(--black); }
+    .btn-secondary { border:1px solid var(--white); background:transparent; color:var(--white); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(247,206,0,.2); }
+    .btn-secondary:hover { background:rgba(255,255,255,.08); }
+    .navbar { position:fixed; top:0; left:0; width:100%; padding:24px 5%; display:flex; justify-content:space-between; align-items:center; z-index:1000; transition:.3s ease; }
+    .navbar.scrolled { background:rgba(10,10,10,.9); backdrop-filter:blur(12px); padding:16px 5%; }
+    .logo { font-size:24px; font-weight:800; }
+    .nav-links { display:flex; gap:32px; }
+    .nav-links a { position:relative; font-weight:700; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--yellow); transition:width .3s ease; }
+    .nav-links a:hover::after { width:100%; }
+    .mobile-menu-btn { display:none; background:none; border:none; color:var(--white); font-size:24px; }
+    .hero { min-height:88vh; padding:var(--section-padding); display:flex; align-items:center; position:relative; overflow:hidden; }
+    .hero-content { max-width:760px; }
+    .hero-notification { position:absolute; right:5%; top:52%; transform:translateY(-50%); width:330px; background:#1A1A1A; border-left:4px solid var(--yellow); border-radius:12px; padding:20px; opacity:0; animation:slideIn 1s forwards; }
+    .notification-time { font-size:12px; color:var(--light-gray); margin-bottom:8px; }
+    .pricing { padding:var(--section-padding); background:#0F0F0F; }
+    .billing-toggle { display:inline-flex; background:var(--medium-gray); border-radius:999px; padding:6px; gap:8px; margin:10px 0 48px; }
+    .toggle-option { padding:10px 18px; border-radius:999px; border:none; background:transparent; color:var(--white); font-weight:700; cursor:pointer; }
+    .toggle-option.active { background:var(--yellow); color:var(--black); }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .pricing-card { background:var(--medium-gray); border-radius:16px; padding:32px; border:1px solid transparent; display:flex; flex-direction:column; transition:.3s ease; }
+    .pricing-card:hover { transform:translateY(-6px); border-color:rgba(247,206,0,.35); }
+    .featured { background:#161616; border-color:rgba(247,206,0,.7); position:relative; }
+    .plan-badge { position:absolute; top:-14px; right:24px; background:var(--yellow); color:var(--black); font-size:12px; font-weight:800; padding:6px 12px; border-radius:999px; }
+    .plan-name { font-size:24px; font-weight:800; margin-bottom:6px; }
+    .plan-subtitle { font-size:16px; color:var(--light-gray); margin-bottom:20px; }
+    .plan-price { font-size:52px; font-weight:900; line-height:1; margin-bottom:8px; }
+    .plan-price small { font-size:16px; color:var(--light-gray); }
+    .plan-discount { font-size:13px; color:#2dd47d; margin-bottom:20px; }
+    .plan-features { list-style:none; margin:26px 0 30px; display:grid; gap:12px; color:#d5d5d5; }
+    .plan-features li::before { content:'✓'; color:var(--yellow); font-weight:800; margin-right:10px; }
+    .plan-cta { margin-top:auto; }
+    .feature-compare,.faq,.cta { padding:var(--section-padding); }
+    .faq { background:var(--dark-gray); }
+    .compare-wrap { overflow:auto; border:1px solid #242424; border-radius:14px; }
+    table { width:100%; min-width:760px; border-collapse:collapse; background:#111; }
+    th,td { padding:18px 20px; border-bottom:1px solid #232323; text-align:left; font-size:15px; }
+    th { background:#151515; }
+    td:first-child { color:var(--white); font-weight:700; width:36%; }
+    .faq-grid { max-width:900px; margin:0 auto; display:grid; gap:16px; }
+    .faq-item { border:1px solid #252525; border-radius:12px; background:#151515; overflow:hidden; }
+    .faq-question { width:100%; border:none; background:transparent; color:var(--white); font-size:18px; font-weight:700; padding:20px 22px; text-align:left; display:flex; justify-content:space-between; }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height .3s ease; padding:0 22px; }
+    .faq-item.active .faq-answer { max-height:220px; padding-bottom:22px; }
+    .cta { text-align:center; }
+    .cta-panel { background:#111; border:1px solid #252525; border-radius:18px; padding:54px 28px; }
+    .cta-actions { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:20px; }
+    .footer { padding:60px 0 30px; border-top:1px solid #1f1f1f; }
+    .footer-container { display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+    .footer-logo { font-size:28px; font-weight:800; margin-bottom:12px; }
+    .footer-bottom { margin-top:26px; padding-top:18px; border-top:1px solid #1b1b1b; color:#7f7f7f; font-size:14px; }
+    .animate-in { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+    .animate-in.visible { opacity:1; transform:translateY(0); }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    @keyframes slideIn { 0%{opacity:0;transform:translate(30px,-50%)} 100%{opacity:1;transform:translate(0,-50%)} }
+    @media (max-width:1024px) { .hero-notification { display:none; } .pricing-grid { grid-template-columns:1fr; max-width:760px; margin:0 auto; } }
+    @media (max-width:768px) { .navbar .btn{display:none} .mobile-menu-btn{display:block} .nav-links{display:none;position:absolute;top:70px;right:5%;background:#161616;border:1px solid #2a2a2a;border-radius:12px;flex-direction:column;gap:18px;padding:20px;min-width:210px} }
+  </style>
+</head>
+<body>
+  <nav class="navbar"><div class="logo">AGUILAR-AI<span class="highlight">.</span></div><div class="nav-links"><a href="#pricing">Pricing</a><a href="#compare">Compare</a><a href="#faq">FAQ</a></div><a href="#cta" class="btn btn-primary">Start free trial</a><button class="mobile-menu-btn">☰</button></nav>
+  <section class="hero"><div class="container"><div class="hero-content"><span class="label">PREMIUM SAAS PRICING</span><h1>Scale revenue with <span class="highlight">a plan built for serious growth.</span></h1><p>Choose the right AGUILAR-AI plan for your team. Flexible billing, enterprise-grade security, and advanced automation from day one.</p><a href="#pricing" class="btn btn-primary">View plans</a></div><div class="hero-notification"><div class="notification-time">today</div><div>147 teams upgraded this month</div></div></div></section>
+  <section id="pricing" class="pricing"><div class="container text-center"><span class="label">PLANS</span><h2>Simple pricing. Premium outcomes.</h2><p>Every plan includes onboarding support and access to our AI workflow engine.</p><div class="billing-toggle"><button class="toggle-option active" data-billing="monthly">Monthly</button><button class="toggle-option" data-billing="yearly">Yearly <span class="highlight">-20%</span></button></div><div class="pricing-grid"><article class="pricing-card animate-in"><div class="plan-name">Starter</div><div class="plan-subtitle">For founders and small teams</div><div class="plan-price" data-monthly="39" data-yearly="31">$39 <small>/ month</small></div><div class="plan-discount">Save $96 per year on yearly billing</div><ul class="plan-features"><li>3 seats included</li><li>10k AI actions per month</li><li>Email support within 24h</li><li>Core analytics dashboard</li></ul><a href="#cta" class="btn btn-secondary plan-cta">Choose Starter</a></article><article class="pricing-card featured animate-in"><span class="plan-badge">Most popular</span><div class="plan-name">Growth</div><div class="plan-subtitle">For scaling product teams</div><div class="plan-price" data-monthly="99" data-yearly="79">$99 <small>/ month</small></div><div class="plan-discount">Save $240 per year on yearly billing</div><ul class="plan-features"><li>10 seats included</li><li>60k AI actions per month</li><li>Priority Slack support</li><li>Advanced automations + API</li></ul><a href="#cta" class="btn btn-primary plan-cta">Choose Growth</a></article><article class="pricing-card animate-in"><div class="plan-name">Scale</div><div class="plan-subtitle">For high-volume organizations</div><div class="plan-price" data-monthly="249" data-yearly="199">$249 <small>/ month</small></div><div class="plan-discount">Save $600 per year on yearly billing</div><ul class="plan-features"><li>Unlimited seats</li><li>250k AI actions per month</li><li>Dedicated success manager</li><li>SSO, SOC 2 and audit logs</li></ul><a href="#cta" class="btn btn-secondary plan-cta">Contact sales</a></article></div></div></section>
+  <section id="compare" class="feature-compare"><div class="container"><div class="text-center"><span class="label">COMPARE FEATURES</span><h2>Everything you need to ship faster</h2></div><div class="compare-wrap animate-in"><table><thead><tr><th>Feature</th><th>Starter</th><th>Growth</th><th>Scale</th></tr></thead><tbody><tr><td>AI workflow builder</td><td>Basic</td><td>Advanced</td><td>Advanced + custom templates</td></tr><tr><td>Integrations</td><td>5</td><td>20</td><td>Unlimited</td></tr><tr><td>Team permissions</td><td>Role presets</td><td>Custom roles</td><td>Custom + approval flows</td></tr><tr><td>Analytics retention</td><td>30 days</td><td>12 months</td><td>Unlimited</td></tr><tr><td>Support SLA</td><td>24h</td><td>4h</td><td>1h priority channel</td></tr></tbody></table></div></div></section>
+  <section id="faq" class="faq"><div class="container"><div class="text-center"><span class="label">FAQ</span><h2>Questions before you choose a plan?</h2></div><div class="faq-grid"><article class="faq-item animate-in"><button class="faq-question">Can I switch plans later? <span>+</span></button><div class="faq-answer"><p>Yes. Upgrade or downgrade anytime, and your billing is prorated automatically from the same dashboard.</p></div></article><article class="faq-item animate-in"><button class="faq-question">Do you offer a free trial? <span>+</span></button><div class="faq-answer"><p>Every plan starts with a 14-day trial, including premium features. No credit card is required to start.</p></div></article><article class="faq-item animate-in"><button class="faq-question">What happens if we exceed usage limits? <span>+</span></button><div class="faq-answer"><p>You can enable auto-topups or move to the next plan. We also send alerts before usage caps are reached.</p></div></article></div></div></section>
+  <section id="cta" class="cta"><div class="container"><div class="cta-panel animate-in"><span class="label">GET STARTED</span><h2>Ready to unlock premium AI operations?</h2><p>Join the teams replacing manual work with automated, measurable growth.</p><div class="cta-actions"><a href="#" class="btn btn-primary">Start free trial</a><a href="#" class="btn btn-secondary">Book a demo</a></div></div></div></section>
+  <footer class="footer"><div class="container"><div class="footer-container"><div><div class="footer-logo">AGUILAR-AI<span class="highlight">.</span></div><p>Premium AI software for modern revenue teams.</p></div><div><p>hello@aguilarai.com</p><p>+34 696 343 875</p></div></div><div class="footer-bottom">© 2026 AGUILAR-AI. All rights reserved.</div></div></footer>
+  <script>
+    window.addEventListener('scroll', () => { const n = document.querySelector('.navbar'); if (window.scrollY > 50) n.classList.add('scrolled'); else n.classList.remove('scrolled'); });
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e){ const t=document.querySelector(this.getAttribute('href')); if(!t) return; e.preventDefault(); t.scrollIntoView({behavior:'smooth'});}));
+    const o = new IntersectionObserver((entries)=>{ entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('visible'); o.unobserve(entry.target); } }); }, {threshold:.1});
+    document.querySelectorAll('.animate-in').forEach(el=>o.observe(el));
+    const m=document.querySelector('.mobile-menu-btn'); const links=document.querySelector('.nav-links'); m.addEventListener('click',()=>{ links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; });
+    document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{ if(window.innerWidth<=768) links.style.display='none'; }));
+    const toggles=document.querySelectorAll('.toggle-option'); const prices=document.querySelectorAll('.plan-price'); toggles.forEach(t=>t.addEventListener('click',()=>{ toggles.forEach(x=>x.classList.remove('active')); t.classList.add('active'); const mode=t.dataset.billing; prices.forEach(p=>{ p.innerHTML=`$${mode==='yearly'?p.dataset.yearly:p.dataset.monthly} <small>/ month</small>`; }); }));
+    document.querySelectorAll('.faq-question').forEach(q=>q.addEventListener('click',()=>q.closest('.faq-item').classList.toggle('active')));
+  </script>
 </body>
 </html>

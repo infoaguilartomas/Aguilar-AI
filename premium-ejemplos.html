@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos Premium | Clínica Estética</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0A0A0A;
+            --dark-gray: #111111;
+            --medium-gray: #1E1E1E;
+            --light-gray: #888888;
+            --white: #FFFFFF;
+            --yellow: #F7CE00;
+            --section-padding: 120px 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .label {
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--yellow);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .label::before {
+            content: "●";
+            animation: pulse 1.5s infinite;
+        }
+
+        h1 {
+            font-size: clamp(38px, 5vw, 62px);
+            font-weight: 900;
+            line-height: 1.08;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 52px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--light-gray);
+            margin-bottom: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .hero {
+            padding: 120px 0 60px;
+        }
+
+        .premium-showcase {
+            padding: 40px 0 120px;
+            background-color: #0D0D0D;
+        }
+
+        .premium-grid {
+            margin-top: 56px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .premium-card {
+            background: linear-gradient(160deg, #151515 0%, #101010 100%);
+            border: 1px solid #2A2A2A;
+            border-radius: 24px;
+            padding: 18px;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(247, 206, 0, 0.45);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .premium-image-wrap {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #232323;
+            aspect-ratio: 4 / 5;
+            background-color: #090909;
+        }
+
+        .premium-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: transform 0.45s ease;
+        }
+
+        .premium-card:hover .premium-image-wrap img {
+            transform: scale(1.04);
+        }
+
+        .premium-meta {
+            margin-top: 16px;
+        }
+
+        .premium-title {
+            margin: 0;
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .premium-description {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 8px 0 0;
+            color: #A0A0A0;
+        }
+
+        .animate-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 1024px) {
+            .premium-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 96px 0 40px;
+            }
+
+            .premium-showcase {
+                padding: 28px 0 90px;
+            }
+
+            .premium-grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .premium-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container text-center">
+            <span class="label">CONTENIDO VISUAL PREMIUM</span>
+            <h1>Ejemplos visuales para clínica estéticas</h1>
+            
+        </div>
+    </header>
+
+    <section class="premium-showcase">
+        <div class="container">
+            <div class="text-center">
+                <span class="label">EJEMPLOS VISUALES</span>
+                <h2>Selección premium lista para captar pacientes</h2>
+            </div>
+
+            <div class="premium-grid">
+                <article class="premium-card animate-in">
+                    <div class="premium-image-wrap">
+                        <img src="antes-despues-labios.png" alt="Antes y después de labios">
+                    </div>
+                    <div class="premium-meta">
+                        <h3 class="premium-title">Antes y Después: Labios</h3>
+                        <p class="premium-description">Resultado natural en volumen y definición labial con enfoque estético equilibrado.</p>
+                    </div>
+                </article>
+
+                <article class="premium-card animate-in">
+                    <div class="premium-image-wrap">
+                        <img src="antes-despues-pomulos.png" alt="Antes y después de pómulos">
+                    </div>
+                    <div class="premium-meta">
+                        <h3 class="premium-title">Antes y Después: Pómulos</h3>
+                        <p class="premium-description">Mejora de estructura facial y proyección del pómulo con acabado suave y armónico.</p>
+                    </div>
+                </article>
+
+                <article class="premium-card animate-in">
+                    <div class="premium-image-wrap">
+                        <img src="antes-despues-botox.png" alt="Antes y después de botox">
+                    </div>
+                    <div class="premium-meta">
+                        <h3 class="premium-title">Antes y Después: Botox</h3>
+                        <p class="premium-description">Reducción visible de líneas de expresión manteniendo naturalidad y expresividad.</p>
+                    </div>
+                </article>
+
+                <article class="premium-card animate-in">
+                    <div class="premium-image-wrap">
+                        <img src="portada-campaña.png" alt="Portada para campaña de clínica estética">
+                    </div>
+                    <div class="premium-meta">
+                        <h3 class="premium-title">Portada para Redes / Campaña</h3>
+                        <p class="premium-description">Creatividad premium para portada social y anuncios con composición limpia y elegante.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const animateElements = document.querySelectorAll(".animate-in");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        animateElements.forEach((element) => observer.observe(element));
+    </script>
+</body>
+</html>

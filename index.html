@@ -325,6 +325,70 @@
             transform: scale(1.05);
         }
 
+        /* PREMIUM VISUAL EXAMPLES */
+        .premium-showcase {
+            padding: var(--section-padding);
+            background-color: #0D0D0D;
+        }
+
+        .premium-grid {
+            margin-top: 56px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .premium-card {
+            background: linear-gradient(160deg, #151515 0%, #101010 100%);
+            border: 1px solid #2A2A2A;
+            border-radius: 24px;
+            padding: 18px;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(247, 206, 0, 0.45);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .premium-image-wrap {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #232323;
+            aspect-ratio: 4 / 5;
+            background-color: #090909;
+        }
+
+        .premium-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: transform 0.45s ease;
+        }
+
+        .premium-card:hover .premium-image-wrap img {
+            transform: scale(1.04);
+        }
+
+        .premium-meta {
+            margin-top: 16px;
+        }
+
+        .premium-title {
+            margin: 0;
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .premium-description {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 8px 0 0;
+            color: #A0A0A0;
+        }
+
         /* LIGHTBOX */
         .lightbox {
             position: fixed;
@@ -741,6 +805,10 @@
             .testimonials-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .premium-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -769,6 +837,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .premium-grid {
+                gap: 20px;
+            }
+
             .footer-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -785,6 +857,10 @@
             }
 
             .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .premium-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -813,6 +889,7 @@
         <div class="logo">AGUILAR-AI<span class="highlight">.</span></div>
         <div class="nav-links">
             <a href="#process">Proceso</a>
+            <a href="#premium">Ejemplos</a>
             <a href="#metrics">Resultados</a>
             <a href="#contact">Contacto</a>
         </div>
@@ -879,6 +956,49 @@
         </div>
     </section>
 
+
+    <!-- PREMIUM SHOWCASE SECTION -->
+    <section id="premium" class="premium-showcase">
+        <div class="container">
+            <div class="text-center">
+                <span class="label">EJEMPLOS VISUALES</span>
+                <h2>Contenido premium para elevar la imagen de tu clínica</h2>
+                <p>Una selección visual con acabados minimalistas, pensados para comunicar calidad y confianza en cada canal.</p>
+            </div>
+
+            <div class="premium-grid">
+                <article class="premium-card animate-in">
+                    <div class="premium-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80" alt="Ejemplo de antes y después facial">
+                    </div>
+                    <div class="premium-meta">
+                        <h3 class="premium-title">Antes y Después</h3>
+                        <p class="premium-description">Comparativa elegante de resultados reales con enfoque clínico y acabado editorial.</p>
+                    </div>
+                </article>
+
+                <article class="premium-card animate-in">
+                    <div class="premium-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80" alt="Portada para redes sociales de clínica estética">
+                    </div>
+                    <div class="premium-meta">
+                        <h3 class="premium-title">Portadas para Redes Sociales</h3>
+                        <p class="premium-description">Diseños de portada sobrios y modernos para Instagram, Facebook y campañas de marca.</p>
+                    </div>
+                </article>
+
+                <article class="premium-card animate-in">
+                    <div class="premium-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1603574670812-d24560880210?auto=format&fit=crop&w=1200&q=80" alt="Creatividad publicitaria para tratamientos estéticos">
+                    </div>
+                    <div class="premium-meta">
+                        <h3 class="premium-title">Creatividades Publicitarias</h3>
+                        <p class="premium-description">Piezas visuales listas para anuncios con mensaje directo, contraste premium y alta conversión.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
     <!-- METRICS SECTION -->
     <section id="metrics" class="metrics">

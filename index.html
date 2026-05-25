@@ -763,6 +763,111 @@
             cursor: pointer;
         }
 
+        /* INFO REQUEST MODAL */
+        .modal-info .modal-content {
+            max-width: 480px;
+        }
+
+        .modal-info .modal-header {
+            margin-bottom: 28px;
+        }
+
+        .modal-info .modal-header h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .modal-info .modal-header p {
+            font-size: 14px;
+            color: var(--light-gray);
+            margin: 0;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .modal-form .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--light-gray);
+            margin-bottom: 8px;
+        }
+
+        .modal-form .form-input {
+            width: 100%;
+            background-color: #111111;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            padding: 14px 16px;
+            color: var(--white);
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal-form .form-input:focus {
+            outline: none;
+            border-color: var(--yellow);
+        }
+
+        .modal-form .form-input::placeholder {
+            color: #444;
+        }
+
+        .modal-form .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--yellow);
+            color: var(--black);
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 6px;
+        }
+
+        .modal-form .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(247, 206, 0, 0.25);
+        }
+
+        .modal-success {
+            display: none;
+            text-align: center;
+            padding: 16px 0 8px;
+        }
+
+        .modal-success.show {
+            display: block;
+        }
+
+        .modal-success .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .modal-success h4 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .modal-success p {
+            font-size: 15px;
+            color: var(--light-gray);
+            margin: 0;
+        }
+
         /* ANIMATIONS */
         @keyframes pulse {
             0% { opacity: 1; }
@@ -911,7 +1016,7 @@
             <a href="#metrics">Resultados</a>
             <a href="#contact">Contacto</a>
         </div>
-        <button class="btn btn-primary">Solicita presupuesto</button>
+        <button class="btn btn-primary" onclick="openInfoModal()">Solicita presupuesto</button>
         <button class="mobile-menu-btn">☰</button>
     </nav>
 
@@ -922,7 +1027,7 @@
                 <span class="label">CONTENIDO VISUAL CON IA PARA CLÍNICAS ESTÉTICAS</span>
                 <h1>Ayudo a clínicas estéticas a captar más clientes con <span class="highlight">contenido visual hecho con IA.</span></h1>
                 <p>Resultados de tratamientos, antes y después para las redes sociales o páginas webs</p>
-                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Solicita tu presupuesto</button>
+                <button class="btn btn-primary" onclick="openInfoModal()">Solicita tu presupuesto</button>
             </div>
             <div class="hero-notification">
                 <div class="notification-time">ahora</div>
@@ -987,7 +1092,7 @@
             <div class="premium-grid">
                 <article class="premium-card animate-in">
                     <div class="premium-image-wrap">
-                        <img src="premium-antes-despues.jpg" alt="Antes y después rejuvenecimiento periorbital" loading="lazy" decoding="async">
+                        <img src="img/premium-antes-despues.jpg" alt="Antes y después rejuvenecimiento periorbital" loading="lazy" decoding="async">
                     </div>
                     <div class="premium-meta">
                         <h3 class="premium-title">Antes y Después</h3>
@@ -997,7 +1102,7 @@
 
                 <article class="premium-card animate-in">
                     <div class="premium-image-wrap">
-                        <img src="premium-portada-redes.jpg" alt="Portada para redes sociales" loading="lazy" decoding="async">
+                        <img src="img/premium-portada-redes.jpg" alt="Portada para redes sociales" loading="lazy" decoding="async">
                     </div>
                     <div class="premium-meta">
                         <h3 class="premium-title">Portadas para Redes Sociales</h3>
@@ -1007,7 +1112,7 @@
 
                 <article class="premium-card animate-in">
                     <div class="premium-image-wrap">
-                        <img src="premium-campana.jpg" alt="Creatividad publicitaria de campaña" loading="lazy" decoding="async">
+                        <img src="img/premium-campana.jpg" alt="Creatividad publicitaria de campaña" loading="lazy" decoding="async">
                     </div>
                     <div class="premium-meta">
                         <h3 class="premium-title">Creatividades Publicitarias</h3>
@@ -1154,9 +1259,86 @@
         </div>
     </div>
 
+    <!-- MODAL SOLICITAR INFORMACIÓN -->
+    <div class="modal modal-info" id="infoModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeInfoModal()">×</button>
+            <div id="infoFormWrap">
+                <div class="modal-header">
+                    <h3>Solicitar información</h3>
+                    <p>Déjanos tus datos y nos ponemos en contacto contigo en menos de 24h.</p>
+                </div>
+                <div class="modal-form">
+                    <div class="form-group">
+                        <label for="infoClinica">Nombre de la clínica</label>
+                        <input type="text" id="infoClinica" class="form-input" placeholder="Ej. Clínica Bella Vida" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="infoEmail">Email de contacto</label>
+                        <input type="email" id="infoEmail" class="form-input" placeholder="correo@tuclinica.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="infoTelefono">Teléfono de contacto</label>
+                        <input type="tel" id="infoTelefono" class="form-input" placeholder="+34 600 000 000" required>
+                    </div>
+                    <button class="btn-submit" onclick="submitInfoForm()">Enviar solicitud</button>
+                </div>
+            </div>
+            <div class="modal-success" id="infoSuccess">
+                <div class="success-icon">✅</div>
+                <h4>¡Solicitud enviada!</h4>
+                <p>Hemos recibido tus datos. Te contactaremos en menos de 24h.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
+        // Info modal
+        function openInfoModal() {
+            document.getElementById('infoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.remove('active');
+            document.body.style.overflow = '';
+            // Reset after close
+            setTimeout(() => {
+                document.getElementById('infoFormWrap').style.display = 'block';
+                document.getElementById('infoSuccess').classList.remove('show');
+                document.getElementById('infoClinica').value = '';
+                document.getElementById('infoEmail').value = '';
+                document.getElementById('infoTelefono').value = '';
+            }, 300);
+        }
+
+        function submitInfoForm() {
+            const clinica = document.getElementById('infoClinica').value.trim();
+            const email = document.getElementById('infoEmail').value.trim();
+            const telefono = document.getElementById('infoTelefono').value.trim();
+
+            if (!clinica || !email || !telefono) {
+                alert('Por favor, rellena todos los campos.');
+                return;
+            }
+
+            const subject = encodeURIComponent(`Solicitud de información — ${clinica}`);
+            const body = encodeURIComponent(`Clínica: ${clinica}\nEmail: ${email}\nTeléfono: ${telefono}`);
+            window.location.href = `mailto:juan@aguilarai.com?subject=${subject}&body=${body}`;
+
+            document.getElementById('infoFormWrap').style.display = 'none';
+            document.getElementById('infoSuccess').classList.add('show');
+
+            setTimeout(() => closeInfoModal(), 4000);
+        }
+
+        // Close info modal clicking outside
+        document.getElementById('infoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeInfoModal();
+        });
+
         // Initialize feather icons
         feather.replace();
 
@@ -1341,4 +1523,5 @@
     </script>
 </body>
 </html>
+
 

@@ -1324,33 +1324,14 @@
                 return;
             }
 
-            const btn = document.querySelector('.btn-submit');
-            btn.textContent = 'Enviando…';
-            btn.disabled = true;
+            const subject = encodeURIComponent(`Solicitud de información — ${clinica}`);
+            const body = encodeURIComponent(`Clínica: ${clinica}\nEmail: ${email}\nTeléfono: ${telefono}`);
+            window.location.href = `mailto:juan@aguilarai.com?subject=${subject}&body=${body}`;
 
-            fetch('https://formspree.io/f/xzdwjddp', {
-                method: 'POST',
-                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    clinica: clinica,
-                    email: email,
-                    telefono: telefono
-                })
-            })
-            .then(res => {
-                if (res.ok) {
-                    document.getElementById('infoFormWrap').style.display = 'none';
-                    document.getElementById('infoSuccess').classList.add('show');
-                    setTimeout(() => closeInfoModal(), 4000);
-                } else {
-                    throw new Error('Error al enviar');
-                }
-            })
-            .catch(() => {
-                alert('Hubo un error al enviar. Por favor, inténtalo de nuevo.');
-                btn.textContent = 'Enviar solicitud';
-                btn.disabled = false;
-            });
+            document.getElementById('infoFormWrap').style.display = 'none';
+            document.getElementById('infoSuccess').classList.add('show');
+
+            setTimeout(() => closeInfoModal(), 4000);
         }
 
         // Close info modal clicking outside
@@ -1542,6 +1523,7 @@
     </script>
 </body>
 </html>
+
 
 
 

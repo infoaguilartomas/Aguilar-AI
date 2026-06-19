@@ -1466,13 +1466,17 @@
         const cookiesModal = document.getElementById('cookiesModal');
         const modalCloseButtons = document.querySelectorAll('.modal-close');
 
-        legalLink.addEventListener('click', (e) => {
+        legalLink.addEventListener('click', (e) => {<footer>
+  <a href="aviso-legal.html">Aviso Legal</a>
+
             e.preventDefault();
             legalModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
 
-        privacyLink.addEventListener('click', (e) => {
+        privacyLink.addEventListener('click', (e) => {<footer>
+  <a href="politica-privacidad.html">Política de Privacidad</a>
+</footer>
             e.preventDefault();
             privacyModal.classList.add('active');
             document.body.style.overflow = 'hidden';

@@ -1,13 +1,9 @@
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
 <link rel="shortcut icon" href="favicon.png">
 <!DOCTYPE html>
 <html lang="es">
-<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-o.onload=function(){window.trackingFunctions.onLoad({appId:"6a36731598100a001441d909"})},
-document.head.appendChild(o)}initApollo();</script>
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contenido Visual para Clínicas Estéticas</title>
@@ -840,9 +836,28 @@ document.head.appendChild(o)}initApollo();</script>
             margin-top: 6px;
         }
 
-        .modal-form .btn-submit:hover {
+        .modal-form .btn-submit:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(247, 206, 0, 0.25);
+        }
+
+        .modal-form .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-error {
+            display: none;
+            background-color: rgba(255, 82, 82, 0.15);
+            border-left: 4px solid #FF5252;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #FF8A80;
+        }
+
+        .form-error.show {
+            display: block;
         }
 
         .modal-success {
@@ -1029,7 +1044,7 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="container">
             <div class="hero-content">
                 <span class="label">CONTENIDO VISUAL CON IA PARA CLÍNICAS ESTÉTICAS</span>
-                <h1>Ayudo a clínicas estéticas a captar más clientes con <span class="highlight">contenido visual adaptado a ellos.</span></h1>
+                <h1>Ayudo a clínicas estéticas a captar más clientes con <span class="highlight">contenido visual hecho con IA.</span></h1>
                 <p>Resultados de tratamientos, antes y después para las redes sociales o páginas webs</p>
                 <button class="btn btn-primary" onclick="openInfoModal()">Solicita tu presupuesto</button>
             </div>
@@ -1039,7 +1054,7 @@ document.head.appendChild(o)}initApollo();</script>
             </div>
             <div class="hero-notification">
                 <div class="notification-time">hace 2 horas</div>
-                <div>📸 Sesión entregada — pack fotos editadas con IA profesionales</div>
+                <div>📸 Sesión entregada — pack fotos con IA profesionales</div>
             </div>
             <div class="hero-notification">
                 <div class="notification-time">hace 1 día</div>
@@ -1089,38 +1104,38 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="container">
             <div class="text-center">
                 <span class="label">EJEMPLOS VISUALES</span>
-                <h2>Contenido para atraer a más público y enseñar simulaciones a los clientes</h2>
-                <p>Diferentes tipos de contenidos adaptados a todas las plataformas y necesidades de la clínica.</p>
+                <h2>Contenido premium para elevar la imagen de tu clínica</h2>
+                <p>Una selección visual con acabados minimalistas, pensados para comunicar calidad y confianza en cada canal.</p>
             </div>
 
             <div class="premium-grid">
                 <article class="premium-card animate-in">
                     <div class="premium-image-wrap">
-                        <img src="premium-antes-despues.jpg" alt="Antes y después rejuvenecimiento periorbital" loading="lazy" decoding="async">
+                        <img src="img/premium-antes-despues.jpg" alt="Antes y después rejuvenecimiento periorbital" loading="lazy" decoding="async">
                     </div>
                     <div class="premium-meta">
                         <h3 class="premium-title">Antes y Después</h3>
-                        <p class="premium-description">Comparativa hecha 1 a 1 para la clínica.</p>
+                        <p class="premium-description">Comparativa elegante de resultados reales con enfoque clínico y acabado editorial.</p>
                     </div>
                 </article>
 
                 <article class="premium-card animate-in">
                     <div class="premium-image-wrap">
-                        <img src="premium-portada-redes.jpg" alt="Portada para redes sociales" loading="lazy" decoding="async">
+                        <img src="img/premium-portada-redes.jpg" alt="Portada para redes sociales" loading="lazy" decoding="async">
                     </div>
                     <div class="premium-meta">
                         <h3 class="premium-title">Portadas para Redes Sociales</h3>
-                        <p class="premium-description">Diseños de portada originales y modernos para Instagram, Facebook y campañas de marca.</p>
+                        <p class="premium-description">Diseños de portada sobrios y modernos para Instagram, Facebook y campañas de marca.</p>
                     </div>
                 </article>
 
                 <article class="premium-card animate-in">
                     <div class="premium-image-wrap">
-                        <img src="premium-campana.jpg" alt="Creatividad publicitaria de campaña" loading="lazy" decoding="async">
+                        <img src="img/premium-campana.jpg" alt="Creatividad publicitaria de campaña" loading="lazy" decoding="async">
                     </div>
                     <div class="premium-meta">
                         <h3 class="premium-title">Creatividades Publicitarias</h3>
-                        <p class="premium-description">Imágenes para atraer al público con un marketing auténtico.</p>
+                        <p class="premium-description">Piezas visuales listas para anuncios con mensaje directo, contraste premium y alta conversión.</p>
                     </div>
                 </article>
             </div>
@@ -1144,7 +1159,7 @@ document.head.appendChild(o)}initApollo();</script>
                     <div class="metric-description">Más citas agendadas tras renovar el contenido</div>
                 </div>
                 <div class="metric-item animate-in">
-                    <div class="metric-number" data-count="21">0</div>
+                    <div class="metric-number" data-count="50">0</div>
                     <div class="metric-description">Clínicas con contenido renovado</div>
                 </div>
                 <div class="metric-item animate-in">
@@ -1165,7 +1180,7 @@ document.head.appendChild(o)}initApollo();</script>
             <div class="testimonials-grid">
                 <div class="testimonial-card animate-in">
                     <div class="stars">★★★★★</div>
-                    <p>"Antes la web tenía fotos cutres de Internet, y ahora con Juan hemos podido renovar todo y poner imágenes a nuestro gusto y adaptadas a la clínica."</p>
+                    <p>"El contenido creado ha transformado completamente nuestra presencia en redes. El resultado no parece IA."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">DL</div>
                         <div class="author-info">
@@ -1176,7 +1191,7 @@ document.head.appendChild(o)}initApollo();</script>
                 </div>
                 <div class="testimonial-card animate-in">
                     <div class="stars">★★★★☆</div>
-                    <p>"Se adapta a lo que necesitabamos en la clínica, mejorar ejemplos de tratamientos y pasarlos por edición para que sean mucho más profesionales, hemos notado un ascenso en el número de clientes y en los seguidores de Instagram."</p>
+                    <p>"Se adapta a lo que necesitabamos en la clínica, resultados visibles para los clientes. Ahora tenemos un buen contenido en redes y aunque sea IA no se nota."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MR</div>
                         <div class="author-info">
@@ -1232,7 +1247,7 @@ document.head.appendChild(o)}initApollo();</script>
                 </div>
             </div>
             <div class="footer-bottom">
-                © 2025 AGUILAR-AI · <a href="aviso-legal.html" class="footer-link" id="legalLink">Aviso Legal</a> · <a href="politica-privacidad.html" class="footer-link" id="privacyLink">Política de Privacidad</a> · <a href="#" class="footer-link" id="cookiesLink">Cookies</a> · <a href="https://www.linkedin.com/in/aguilar-ai/" rel="noopener noreferrer" class="footer-linkedin" aria-label="LinkedIn — Juan Aguilar"><i data-feather="linkedin"></i></a>
+                © 2025 AGUILAR-AI · <a href="#" class="footer-link" id="legalLink">Aviso Legal</a> · <a href="#" class="footer-link" id="privacyLink">Política de Privacidad</a> · <a href="#" class="footer-link" id="cookiesLink">Cookies</a> · <a href="https://www.linkedin.com/in/juan-aguilar-612837409" target="_blank" rel="noopener noreferrer" class="footer-linkedin" aria-label="LinkedIn — Juan Aguilar"><i data-feather="linkedin"></i></a>
             </div>
         </div>
     </footer>
@@ -1242,41 +1257,8 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="modal-content">
             <button class="modal-close">×</button>
             <h3>Aviso Legal</h3>
-            <p><h1>Aviso Legal</h1>
-
-<p>En cumplimiento de la normativa vigente, se informa que el presente sitio web, AguilarAI, tiene como finalidad ofrecer servicios de creación de contenido visual mediante Inteligencia Artificial para clínicas estéticas y negocios relacionados.</p>
-
-<h2>Identificación del titular</h2>
-
-<p>
-Titular: Juan Aguilar<br>
-Correo electrónico: contacto@aguilarai.com<br>
-Sitio web: https://aguilarai.com
-</p>
-
-<h2>Objeto</h2>
-
-<p>
-El presente sitio web tiene por objeto informar sobre los servicios ofrecidos por AguilarAI, así como facilitar el contacto entre potenciales clientes y el titular.
-</p>
-
-<h2>Propiedad intelectual</h2>
-
-<p>
-Todos los contenidos del sitio web, incluyendo textos, imágenes, diseños, logotipos y elementos gráficos, son propiedad de AguilarAI o cuentan con autorización para su uso. Queda prohibida su reproducción total o parcial sin autorización previa.
-</p>
-
-<h2>Responsabilidad</h2>
-
-<p>
-El titular no garantiza la ausencia de errores en los contenidos publicados, aunque se compromete a corregirlos cuando tenga conocimiento de los mismos.
-</p>
-
-<h2>Enlaces externos</h2>
-
-<p>
-Este sitio web puede contener enlaces a páginas de terceros. AguilarAI no se responsabiliza del contenido ni de las políticas de privacidad de dichos sitios.
-</p>
+            <p>Este es un texto placeholder para el aviso legal. Deberías reemplazarlo con el texto legal real de tu sitio web, incluyendo información sobre la propiedad del sitio, responsabilidad, condiciones de uso, etc.</p>
+            <p>Consulta con un profesional legal para obtener un aviso legal adecuado para tu negocio y jurisdicción.</p>
         </div>
     </div>
 
@@ -1284,61 +1266,7 @@ Este sitio web puede contener enlaces a páginas de terceros. AguilarAI no se re
         <div class="modal-content">
             <button class="modal-close">×</button>
             <h3>Política de Privacidad</h3>
-            <p><h1>Política de Privacidad</h1>
-
-<p>
-La presente Política de Privacidad regula el tratamiento de los datos personales facilitados por los usuarios a través de este sitio web.
-</p>
-
-<h2>Responsable del tratamiento</h2>
-
-<p>
-Responsable: Juan Aguilar<br>
-Correo electrónico: contacto@aguilarai.com
-</p>
-
-<h2>Datos recopilados</h2>
-
-<p>
-Los datos personales recopilados podrán incluir nombre, correo electrónico, teléfono y cualquier información facilitada voluntariamente por el usuario mediante formularios de contacto o comunicaciones directas.
-</p>
-
-<h2>Finalidad del tratamiento</h2>
-
-<p>
-Los datos serán utilizados únicamente para:
-</p>
-
-<ul>
-<li>Responder consultas.</li>
-<li>Enviar presupuestos.</li>
-<li>Gestionar relaciones comerciales.</li>
-<li>Prestar los servicios contratados.</li>
-</ul>
-
-<h2>Legitimación</h2>
-
-<p>
-La base legal para el tratamiento es el consentimiento otorgado por el usuario al contactar voluntariamente con AguilarAI.
-</p>
-
-<h2>Conservación de los datos</h2>
-
-<p>
-Los datos se conservarán únicamente durante el tiempo necesario para atender la solicitud o mantener la relación comercial.
-</p>
-
-<h2>Derechos del usuario</h2>
-
-<p>
-El usuario podrá ejercer sus derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad enviando una solicitud a contacto@aguilarai.com.
-</p>
-
-<h2>Seguridad</h2>
-
-<p>
-AguilarAI adopta medidas razonables para proteger los datos personales frente a accesos no autorizados, alteración o pérdida.
-</p>.</p>
+            <p>Este es un texto placeholder para la política de privacidad. Deberías describir aquí cómo recopilas, usas y proteges los datos personales de los usuarios, incluyendo información sobre cookies, análisis web, y derechos de los usuarios bajo el RGPD si aplica.</p>
         </div>
     </div>
 
@@ -1346,7 +1274,7 @@ AguilarAI adopta medidas razonables para proteger los datos personales frente a 
         <div class="modal-content">
             <button class="modal-close">×</button>
             <h3>Política de Cookies</h3>
-            <p>
+            <p>Texto placeholder para la política de cookies. Explica qué cookies utilizas en tu sitio web, su propósito, y cómo los usuarios pueden gestionar sus preferencias de cookies.</p>
         </div>
     </div>
 
@@ -1359,21 +1287,23 @@ AguilarAI adopta medidas razonables para proteger los datos personales frente a 
                     <h3>Solicitar información</h3>
                     <p>Déjanos tus datos y nos ponemos en contacto contigo en menos de 24h.</p>
                 </div>
-                <div class="modal-form">
+                <form class="modal-form" id="infoForm" onsubmit="submitInfoForm(event)" novalidate>
+                    <input type="text" name="_honey" id="infoHoney" style="display:none" tabindex="-1" autocomplete="off">
                     <div class="form-group">
                         <label for="infoClinica">Nombre de la clínica</label>
-                        <input type="text" id="infoClinica" class="form-input" placeholder="Ej. Clínica Bella Vida" required>
+                        <input type="text" id="infoClinica" name="clinica" class="form-input" placeholder="Ej. Clínica Bella Vida" required>
                     </div>
                     <div class="form-group">
                         <label for="infoEmail">Email de contacto</label>
-                        <input type="email" id="infoEmail" class="form-input" placeholder="correo@tuclinica.com" required>
+                        <input type="email" id="infoEmail" name="email" class="form-input" placeholder="correo@tuclinica.com" required>
                     </div>
                     <div class="form-group">
                         <label for="infoTelefono">Teléfono de contacto</label>
-                        <input type="tel" id="infoTelefono" class="form-input" placeholder="+34 600 000 000" required>
+                        <input type="tel" id="infoTelefono" name="telefono" class="form-input" placeholder="+34 600 000 000" required>
                     </div>
-                    <button class="btn-submit" onclick="submitInfoForm()">Enviar solicitud</button>
-                </div>
+                    <div class="form-error" id="infoFormError"></div>
+                    <button type="submit" class="btn-submit" id="infoSubmitBtn">Enviar solicitud</button>
+                </form>
             </div>
             <div class="modal-success" id="infoSuccess">
                 <div class="success-icon">✅</div>
@@ -1386,7 +1316,12 @@ AguilarAI adopta medidas razonables para proteger los datos personales frente a 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
-        // Info modal
+        // Configuración del envío automático de emails
+        const EMAIL_CONFIG = {
+            destinatario: 'juan@aguilarai.com',
+            endpoint: 'https://formsubmit.co/ajax/juan@aguilarai.com'
+        };
+
         function openInfoModal() {
             document.getElementById('infoModal').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1395,34 +1330,85 @@ AguilarAI adopta medidas razonables para proteger los datos personales frente a 
         function closeInfoModal() {
             document.getElementById('infoModal').classList.remove('active');
             document.body.style.overflow = '';
-            // Reset after close
             setTimeout(() => {
                 document.getElementById('infoFormWrap').style.display = 'block';
                 document.getElementById('infoSuccess').classList.remove('show');
-                document.getElementById('infoClinica').value = '';
-                document.getElementById('infoEmail').value = '';
-                document.getElementById('infoTelefono').value = '';
+                document.getElementById('infoFormError').classList.remove('show');
+                document.getElementById('infoForm').reset();
+                resetInfoSubmitBtn();
             }, 300);
         }
 
-        function submitInfoForm() {
+        function resetInfoSubmitBtn() {
+            const btn = document.getElementById('infoSubmitBtn');
+            btn.textContent = 'Enviar solicitud';
+            btn.disabled = false;
+        }
+
+        function showInfoFormError(message) {
+            const errorEl = document.getElementById('infoFormError');
+            errorEl.textContent = message;
+            errorEl.classList.add('show');
+        }
+
+        async function submitInfoForm(event) {
+            event.preventDefault();
+
             const clinica = document.getElementById('infoClinica').value.trim();
             const email = document.getElementById('infoEmail').value.trim();
             const telefono = document.getElementById('infoTelefono').value.trim();
+            const honey = document.getElementById('infoHoney').value.trim();
+            const errorEl = document.getElementById('infoFormError');
+            const btn = document.getElementById('infoSubmitBtn');
+
+            errorEl.classList.remove('show');
+
+            if (honey) return;
 
             if (!clinica || !email || !telefono) {
-                alert('Por favor, rellena todos los campos.');
+                showInfoFormError('Por favor, rellena todos los campos.');
                 return;
             }
 
-            const subject = encodeURIComponent(`Solicitud de información — ${clinica}`);
-            const body = encodeURIComponent(`Clínica: ${clinica}\nEmail: ${email}\nTeléfono: ${telefono}`);
-            window.location.href = `mailto:juan@aguilarai.com?subject=${subject}&body=${body}`;
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showInfoFormError('Introduce un email válido.');
+                return;
+            }
 
-            document.getElementById('infoFormWrap').style.display = 'none';
-            document.getElementById('infoSuccess').classList.add('show');
+            btn.textContent = 'Enviando…';
+            btn.disabled = true;
 
-            setTimeout(() => closeInfoModal(), 4000);
+            try {
+                const response = await fetch(EMAIL_CONFIG.endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: `Nueva solicitud de presupuesto — ${clinica}`,
+                        _template: 'table',
+                        _captcha: 'false',
+                        _replyto: email,
+                        'Nombre de la clínica': clinica,
+                        'Email de contacto': email,
+                        'Teléfono': telefono
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && (data.success === true || data.success === 'true')) {
+                    document.getElementById('infoFormWrap').style.display = 'none';
+                    document.getElementById('infoSuccess').classList.add('show');
+                    setTimeout(() => closeInfoModal(), 4000);
+                } else {
+                    throw new Error(data.message || 'Error al enviar');
+                }
+            } catch (error) {
+                showInfoFormError('Hubo un error al enviar. Por favor, inténtalo de nuevo o escríbenos a juan@aguilarai.com');
+                resetInfoSubmitBtn();
+            }
         }
 
         // Close info modal clicking outside
@@ -1501,53 +1487,6 @@ AguilarAI adopta medidas razonables para proteger los datos personales frente a 
             metricObserver.observe(number);
         });
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const formObject = {};
-            formData.forEach((value, key) => formObject[key] = value);
-            
-            const subject = `Nuevo mensaje de ${formObject.name}`;
-            const body = `Nombre: ${formObject.name}%0AEmail: ${formObject.email}%0ATeléfono: ${formObject.phone}%0AMensaje: ${formObject.message}`;
-            
-            window.location.href = `mailto:juan@aguilarai.com?subject=${subject}&body=${body}`;
-            
-            successMessage.classList.add('show');
-            contactForm.reset();
-            
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
-            
-            /* 
-            // Example for integrating with Formspree:
-            const formData = new FormData(contactForm);
-            fetch('https://formspree.io/f/your-form-id', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    successMessage.classList.add('show');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-            */
-        });
-
         // Modal functionality
         const legalLink = document.getElementById('legalLink');
         const privacyLink = document.getElementById('privacyLink');
@@ -1614,7 +1553,6 @@ AguilarAI adopta medidas razonables para proteger los datos personales frente a 
     </script>
 </body>
 </html>
-
 
 
 

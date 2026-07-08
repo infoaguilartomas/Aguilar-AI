@@ -1396,49 +1396,71 @@
     </section>
 
 
-    <!-- PREMIUM SHOWCASE SECTION -->
-    <section id="premium" class="premium-showcase">
-        <div class="container">
-            <div class="text-center">
-                <span class="label">EJEMPLOS VISUALES</span>
-                <h2>Contenido premium para elevar la imagen de tu clínica</h2>
-                <p>Una selección visual con acabados minimalistas, pensados para comunicar calidad y confianza en cada canal.</p>
+<!-- SHOWCASE SECTION - NUEVO DISEÑO -->
+<section class="showcase" id="showcase">
+    <div class="showcase-header">
+        <h2>Nuestro Contenido Visual</h2>
+        <p>Tres tipos de contenido especializado diseñado para potenciar tu presencia digital y convertir visitantes en pacientes</p>
+    </div>
+
+    <div class="showcase-grid">
+        <!-- BLOQUE 1: Social Media Cover 1080x1080 -->
+        <div class="showcase-block">
+            <div class="showcase-content">
+                <span class="showcase-tag">Portada Social Media</span>
+                <h3>Diseño para Redes Sociales</h3>
+                <p class="showcase-subtitle">Un modelo diseñado específicamente dependiendo de cada tratamiento.</p>
+                <div class="image-click-hint">
+                    <span>🔍</span>
+                    <span>Haz clic en la imagen para ampliar</span>
+                </div>
             </div>
-
-            <div class="premium-grid">
-                <article class="premium-card animate-in">
-                    <div class="premium-image-wrap">
-                        <img src="premium-antes-despues.jpg" alt="Antes y después rejuvenecimiento periorbital" loading="lazy" decoding="async">
-                    </div>
-                    <div class="premium-meta">
-                        <h3 class="premium-title">Antes y Después</h3>
-                        <p class="premium-description">Comparativa elegante de resultados reales con enfoque clínico y acabado editorial.</p>
-                    </div>
-                </article>
-
-                <article class="premium-card animate-in">
-                    <div class="premium-image-wrap">
-                        <img src="premium-portada-redes.jpg" alt="Portada para redes sociales" loading="lazy" decoding="async">
-                    </div>
-                    <div class="premium-meta">
-                        <h3 class="premium-title">Portadas para Redes Sociales</h3>
-                        <p class="premium-description">Diseños de portada sobrios y modernos para Instagram, Facebook y campañas de marca.</p>
-                    </div>
-                </article>
-
-                <article class="premium-card animate-in">
-                    <div class="premium-image-wrap">
-                        <img src="premium-campana.jpg" alt="Creatividad publicitaria de campaña" loading="lazy" decoding="async">
-                    </div>
-                    <div class="premium-meta">
-                        <h3 class="premium-title">Creatividades Publicitarias</h3>
-                        <p class="premium-description">Piezas visuales listas para anuncios con mensaje directo, contraste premium y alta conversión.</p>
-                    </div>
-                </article>
+            <div class="showcase-image" onclick="openLightbox(event, 'social-media-cover.jpg')">
+                <img src="social-media-cover.jpg" alt="Portada para redes sociales 1080x1080">
             </div>
         </div>
-    </section>
 
+        <!-- BLOQUE 2: Professional Transform 1920x1080 -->
+        <div class="showcase-block">
+            <div class="showcase-content">
+                <span class="showcase-tag">Transformación Profesional</span>
+                <h3>Transformaciones a Imagenes Profesionales</h3>
+                <p class="showcase-subtitle">Transformamos una foto selfie real de un paciente en su casa a fotos profesionales hecha como si estuviera realizada por un estudio fotografico.</p>
+                <div class="image-click-hint">
+                    <span>🔍</span>
+                    <span>Haz clic en la imagen para ampliar</span>
+                </div>
+            </div>
+            <div class="showcase-image" onclick="openLightbox(event, 'professional-transform.jpg')">
+                <img src="professional-transform.jpg" alt="Transformación profesional 1920x1080">
+            </div>
+        </div>
+
+        <!-- BLOQUE 3: AI Simulations 1080x1080 -->
+        <div class="showcase-block">
+            <div class="showcase-content">
+                <span class="showcase-tag">Simulaciones IA</span>
+                <h3>Simulaciones de Tratamientos desde 0</h3>
+                <p class="showcase-subtitle">Simulaciones hechas con IA para hacer una pre-simulacion al cliente para que vea más o menos como va a quedar, nada de mostrar estos resultados como reales.</p>
+                <div class="image-click-hint">
+                    <span>🔍</span>
+                    <span>Haz clic en la imagen para ampliar</span>
+                </div>
+            </div>
+            <div class="showcase-image" onclick="openLightbox(event, 'ai-simulation.jpg')">
+                <img src="ai-simulation.jpg" alt="Simulación IA 1080x1080">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="">
+    </div>
+</div>
 
     <!-- METRICS SECTION -->
     <section id="metrics" class="metrics">

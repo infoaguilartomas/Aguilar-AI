@@ -10,6 +10,121 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <!-- Responsive CSS (pegar al final del bloque <style> existente o como nuevo <style> dentro de <head>) -->
+<style>
+/* ===== RESPONSIVE: MÓVIL ===== */
+/* Ajustes generales para móviles (tablets y móviles grandes) */
+@media (max-width: 768px) {
+  /* reducir padding de secciones */
+  :root { --section-padding: 60px 0; }
+
+  /* Navbar */
+  .navbar {
+    padding: 14px 4%;
+  }
+  .logo { font-size: 20px; }
+  .nav-links {
+    display: none; /* ocultamos links de escritorio */
+  }
+  .mobile-menu-btn {
+    display: block; /* mostramos botón móvil si existe en HTML */
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  /* Hero: apilar contenido y ajustar anchuras */
+  .hero {
+    min-height: auto;
+    padding: var(--section-padding);
+    align-items: flex-start;
+  }
+  .hero-content {
+    max-width: 100%;
+    padding: 8px 4%;
+  }
+  .hero-notification {
+    position: static;
+    width: calc(100% - 10%);
+    margin: 18px auto 0;
+    transform: none;
+    right: auto;
+    top: auto;
+    opacity: 1; /* que sean visibles en móvil */
+    animation: none;
+  }
+
+  /* Process: apilar pasos */
+  .process-container { padding: 0 4%; }
+  .process-step { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; padding-left: 28px; }
+  .process-number { margin-right: 0; margin-bottom: 6px; font-size: 36px; min-width: auto; }
+  .process-line { left: 18px; top: 48px; bottom: -32px; }
+
+  /* Grid: portfolio / premium / testimonials / metrics */
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 4%; }
+  .premium-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 4%; margin-top: 28px; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; padding: 0 4%; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 4%; }
+
+  /* Cards y elementos con padding grande */
+  .premium-card, .testimonial-card, .presupuesto-card, .calc-result-box {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  /* Calculator: apilar columnas */
+  .calculator-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* Footer: columna única */
+  .footer { padding: 48px 4% 32px; }
+  .footer-container { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Botones y tipografías */
+  .btn { padding: 12px 20px; }
+  p { font-size: 15px; }
+  .metric-number { font-size: 48px; }
+
+  /* Lightbox: ajustar tamaños si es necesario */
+  .lightbox-content { max-width: 92%; max-height: 86%; }
+  .lightbox-img { max-height: 60vh; }
+}
+
+/* Ajustes finos para móviles pequeños */
+@media (max-width: 420px) {
+  :root { --section-padding: 40px 0; }
+
+  h1 { margin-bottom: 18px; } /* clamped font-size seguirá funcionando */
+  .logo { font-size: 18px; }
+  .process-number { font-size: 32px; }
+  .metric-number { font-size: 40px; }
+  .portfolio-grid, .premium-grid { grid-template-columns: 1fr; }
+  .nav-links.open { right: 4%; left: 4%; width: auto; } /* por si el menú se abre */
+  .calc-range::-webkit-slider-thumb,
+  .calc-range::-moz-range-thumb { width: 20px; height: 20px; }
+}
+
+/* Estilos del menú desplegable móvil (cuando .nav-links tiene .open) */
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 4%;
+  background: rgba(10,10,10,0.95);
+  padding: 12px;
+  border-radius: 10px;
+  gap: 12px;
+  z-index: 1100;
+  min-width: 160px;
+}
+.nav-links.open a { padding: 8px 12px; display: block; }
+</style>
     <style>
         /* RESET & BASE STYLES */
         :root {

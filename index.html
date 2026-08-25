@@ -12,6 +12,166 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
     <!-- Responsive CSS (pegar al final del bloque <style> existente o como nuevo <style> dentro de <head>) -->
 <style>
+/* Popup "Renovar tu clínica" - usa las mismas variables y tipografías del proyecto */
+#renovar-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#renovar-modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.renovar-modal {
+  background: linear-gradient(160deg, #141414 0%, #0F0F0F 100%);
+  border: 1px solid #2A2A2A;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  max-width: 560px;
+  width: calc(100% - 48px);
+  color: var(--white);
+  font-family: inherit; /* hereda 'DM Sans' ya cargada */
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* Botón rojo para cerrar */
+.renovar-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #E23B3B; /* rojo */
+  color: #fff;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  transition: transform 0.12s ease;
+}
+.renovar-close:active { transform: scale(.96); }
+
+/* Título - seguir estilo principal */
+.renovar-modal h2 {
+  font-size: clamp(28px, 4.8vw, 44px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+/* Texto secundario */
+.renovar-modal p {
+  color: var(--light-gray);
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+/* CTA amarillo */
+.renovar-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 34px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--black);
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.renovar-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(247,206,0,0.18);
+}
+
+/* Ajustes responsivos finos */
+@media (max-width: 420px) {
+  .renovar-modal { padding: 20px; border-radius: 14px; }
+  .renovar-close { width: 40px; height: 40px; top: -12px; right: -12px; }
+  .renovar-modal h2 { font-size: clamp(22px,6.5vw,32px); }
+}
+</style>
+
+<!-- HTML del popup -->
+<div id="renovar-modal-overlay" aria-hidden="true">
+  <div class="renovar-modal" role="dialog" aria-modal="true" aria-labelledby="renovar-modal-title">
+    <button class="renovar-close" id="renovar-modal-close" aria-label="Cerrar">×</button>
+
+    <h2 id="renovar-modal-title">¿Quieres renovar tu clínica?</h2>
+    <p>Renueva tu imagen con contenido visual profesional para aumentar la atracción de pacientes y mejorar tu presencia online.</p>
+
+    <div style="margin-top:8px;">
+      <!-- Enlace hacia la sección 'Presupuesto' (usa el id de la sección existente: #presupuesto) -->
+      <a href="#presupuesto" id="renovar-modal-cta" class="renovar-cta">Pulsa aquí</a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Comportamiento: abrir a los 5s, cerrar con el botón rojo, al clicar fuera o pulsar Esc también cierra. */
+(function(){
+  var overlay = document.getElementById('renovar-modal-overlay');
+  var closeBtn = document.getElementById('renovar-modal-close');
+  var cta = document.getElementById('renovar-modal-cta');
+  var openTimer = null;
+
+  function openModal(){
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden','false');
+    // dar foco al botón cerrar para accesibilidad
+    try { closeBtn.focus(); } catch(e){}
+  }
+
+  function closeModal(){
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden','true');
+    // limpiar timer por si
+    if (openTimer) { clearTimeout(openTimer); openTimer = null; }
+  }
+
+  // abrir 5 segundos después de cargar la página
+  window.addEventListener('load', function(){
+    openTimer = setTimeout(openModal, 5000);
+  });
+
+  // cerrar al pulsar el botón rojo
+  closeBtn.addEventListener('click', closeModal);
+
+  // cerrar al clicar fuera del modal (en el overlay)
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeModal();
+  });
+
+  // cerrar al pulsar Esc
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' || e.key === 'Esc') closeModal();
+  });
+
+  // al clicar el CTA, cerrar el modal (luego el ancla hará scroll a #presupuesto)
+  cta.addEventListener('click', function(){
+    closeModal();
+  });
+})();
+    
 /* ===== RESPONSIVE: MÓVIL ===== */
 /* Ajustes generales para móviles (tablets y móviles grandes) */
 @media (max-width: 768px) {

@@ -31,7 +31,7 @@
   .navbar {
     padding: 14px 4%;
   }
-  .logo { font-size: 20px; }
+  .logo img { height: 24px; }
   .nav-links {
     display: none; /* ocultamos links de escritorio */
   }
@@ -109,7 +109,7 @@
   :root { --section-padding: 40px 0; }
 
   h1 { margin-bottom: 18px; } /* clamped font-size seguirá funcionando */
-  .logo { font-size: 18px; }
+  .logo img { height: 22px; }
   .process-number { font-size: 32px; }
   .metric-number { font-size: 40px; }
   .portfolio-grid, .premium-grid { grid-template-columns: 1fr; }
@@ -270,9 +270,22 @@
             padding: 16px 5%;
         }
 
+        .navbar.scrolled .logo img {
+            height: 24px;
+        }
+
         .logo {
-            font-size: 24px;
-            font-weight: 800;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .logo img {
+            height: 28px;
+            width: auto;
+            max-width: min(280px, 52vw);
+            object-fit: contain;
         }
 
         .nav-links {
@@ -1446,10 +1459,12 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="logo">AGUILAR-AI<span class="highlight">.</span></div>
+        <a href="#top" class="logo" aria-label="AGUILAR-AI Studio — ir al inicio">
+            <img src="logo-aguilar-ai-studio.png" alt="AGUILAR-AI Studio">
+        </a>
         <div class="nav-links">
             <a href="#process">Proceso</a>
             <a href="#premium">Ejemplos</a>
@@ -1984,9 +1999,15 @@ Aviso Legal | Política de Privacidad</div>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const href = this.getAttribute('href');
+                if (href === '#top' || href === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
